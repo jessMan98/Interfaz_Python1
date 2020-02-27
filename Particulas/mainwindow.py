@@ -1,6 +1,7 @@
-from PySide2.QtWidgets import QMainWindow, QFileDialog, QTableWidgetItem, QMessageBox
+from PySide2.QtWidgets import QMainWindow, QFileDialog, QTableWidgetItem, QMessageBox, QGraphicsScene
 from ui_mainwindow import Ui_MainWindow
 from PySide2.QtCore import Slot
+from PySide2.QtGui import QPen, QColor, QTransform
 import json
 import math
 
@@ -25,6 +26,50 @@ class MainWindow(QMainWindow):
         self.ui.mostrar.clicked.connect(self.muestra_tabla)
         self.ui.busca.clicked.connect(self.busqueda)
 
+        self.ui.dibuja.clicked.connect(self.dibujar)
+        self.ui.limpia.clicked.connect(self.limpiar)
+
+        #creacion del objeto Scene
+        self.scene = QGraphicsScene()
+        #agregamos la escena a graficsView
+        self.ui.graphicsView.setScene(self.scene)
+
+    def wheelEvent(self, event):
+        #imprime valor del scrooll del mouse
+        print(event.delta())
+
+        if event.delta() > 0:
+            #escala a 20%
+            self.ui.graphicsView.scale(1.2, 1.2)
+        else:
+            self.ui.graphicsView.scale(0.8, 0.8)
+
+    @Slot()
+    def dibujar(self):
+        #creacion del objeto QPen
+        pen = QPen()
+        #ancho de 2 pixeles
+        pen.setWidth(2)
+
+        for e in self.particles:
+            #agregamos color
+            color = QColor(e['color']['red'], e['color']['green'], e['color']['blue'])
+            pen.setColor(color)
+
+            # posicion xy, radio
+            self.scene.addEllipse(e['origen']['x'], e['origen']['y'], 8, 8, pen)
+            self.scene.addEllipse(e['destino']['x'], e['destino']['y'], 8, 8, pen)
+            
+            #primer circulo, segundo circulo
+            self.scene.addLine(e['origen']['x']+4, e['origen']['y']+4, e['destino']['x']+4, e['destino']['y']+4, pen)
+
+    @Slot()
+    def limpiar(self):
+        #limpia la escena
+        self.scene.clear()
+        #escala al tamaño original
+        self.ui.graphicsView.setTransform(QTransform())
+
     def calculoEuclidiano(self, x_uno, y_uno, x_dos, y_dos):
         a = math.pow((x_dos - x_uno), 2)
         b = math.pow((y_dos - y_uno), 2)
@@ -48,6 +93,7 @@ class MainWindow(QMainWindow):
 
         id = int(self.ui.busca_linea.text())
 
+        #busqueda del id
         for item in self.particles:
             if id == item['id']:
                 particula.append(item)
@@ -74,7 +120,6 @@ class MainWindow(QMainWindow):
         labels = ['ID', 'OrigenX', 'OrigenY', 'DestinoX', 'DestinoY', 'Velocidad', 'Red', 'Green', 'Blue','Distancia']
         self.ui.tabla.setHorizontalHeaderLabels(labels)
 
-
         # contador de filas
         row = 0
         for particula in particulas:
@@ -87,7 +132,8 @@ class MainWindow(QMainWindow):
             r = QTableWidgetItem(str(particula['color']['red']))
             g = QTableWidgetItem(str(particula['color']['green']))
             b = QTableWidgetItem(str(particula['color']['blue']))
-            self.dis = self.calculoEuclidiano(particula['origen']['x'], particula['origen']['y'], particula['destino']['x'], particula['destino']['y'])
+            self.dis = self.calculoEuclidiano(particula['origen']['x'], particula['origen']['y'],
+                                              particula['destino']['x'], particula['destino']['y'])
             d = QTableWidgetItem(str(self.dis))
 
             self.ui.tabla.setItem(row, 0, id)
