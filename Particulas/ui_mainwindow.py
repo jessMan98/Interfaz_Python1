@@ -22,6 +22,8 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(669, 503)
         MainWindow.setStyleSheet(u"font: 75 10pt \"MS Shell Dlg 2\";\n"
+"background-color: rgb(1, 165, 113);\n"
+"\n"
 "\n"
 "")
         self.actionAbrir = QAction(MainWindow)
@@ -30,38 +32,43 @@ class Ui_MainWindow(object):
         self.actionGuardar.setObjectName(u"actionGuardar")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.tabWidget = QTabWidget(self.centralwidget)
-        self.tabWidget.setObjectName(u"tabWidget")
-        self.tabWidget.setGeometry(QRect(20, 10, 631, 451))
-        self.tabWidget.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.Pintar = QTabWidget(self.centralwidget)
+        self.Pintar.setObjectName(u"Pintar")
+        self.Pintar.setGeometry(QRect(20, 10, 631, 451))
+        self.Pintar.setStyleSheet(u"\n"
+"background-color: rgb(201, 232, 222);\n"
+"")
         self.tab = QWidget()
         self.tab.setObjectName(u"tab")
         self.muestra = QPushButton(self.tab)
         self.muestra.setObjectName(u"muestra")
-        self.muestra.setGeometry(QRect(50, 380, 191, 23))
-        self.muestra.setStyleSheet(u"background-color: rgb(44, 124, 22);\n"
+        self.muestra.setGeometry(QRect(50, 380, 201, 23))
+        self.muestra.setStyleSheet(u"background-color: rgb(2, 107, 77);\n"
 "color: rgb(255, 255, 255);")
         self.label_5 = QLabel(self.tab)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setGeometry(QRect(50, 290, 16, 16))
         self.green = QSpinBox(self.tab)
         self.green.setObjectName(u"green")
-        self.green.setGeometry(QRect(110, 290, 131, 20))
+        self.green.setGeometry(QRect(110, 290, 141, 20))
+        self.green.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.green.setMaximum(255)
         self.inserta = QPushButton(self.tab)
         self.inserta.setObjectName(u"inserta")
-        self.inserta.setGeometry(QRect(50, 350, 191, 23))
-        self.inserta.setStyleSheet(u"background-color: rgb(44, 124, 22);\n"
+        self.inserta.setGeometry(QRect(50, 350, 201, 23))
+        self.inserta.setStyleSheet(u"background-color: rgb(2, 107, 77);\n"
+"\n"
 "color: rgb(255, 255, 255);")
         self.blue = QSpinBox(self.tab)
         self.blue.setObjectName(u"blue")
-        self.blue.setGeometry(QRect(110, 320, 131, 20))
+        self.blue.setGeometry(QRect(110, 320, 141, 20))
+        self.blue.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.blue.setMaximum(255)
         self.label_8 = QLabel(self.tab)
         self.label_8.setObjectName(u"label_8")
-        self.label_8.setGeometry(QRect(50, 220, 40, 19))
-        self.label_8.setStyleSheet(u"\n"
-"font: 11pt \"MS Reference Sans Serif\";")
+        self.label_8.setGeometry(QRect(40, 220, 31, 20))
+        self.label_8.setStyleSheet(u"font: 11pt \"MS Reference Sans Serif\";\n"
+"color:rgb(208, 6, 9);")
         self.label_4 = QLabel(self.tab)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(50, 260, 16, 16))
@@ -73,6 +80,7 @@ class Ui_MainWindow(object):
         self.formLayout_2.setContentsMargins(0, 0, 0, 0)
         self.id = QLineEdit(self.layoutWidget)
         self.id.setObjectName(u"id")
+        self.id.setStyleSheet(u"background-color: rgb(255, 255, 255);")
 
         self.formLayout_2.setWidget(0, QFormLayout.FieldRole, self.id)
 
@@ -83,6 +91,7 @@ class Ui_MainWindow(object):
 
         self.origen_X1 = QLineEdit(self.layoutWidget)
         self.origen_X1.setObjectName(u"origen_X1")
+        self.origen_X1.setStyleSheet(u"background-color: rgb(255, 255, 255);")
 
         self.formLayout_2.setWidget(1, QFormLayout.FieldRole, self.origen_X1)
 
@@ -93,6 +102,7 @@ class Ui_MainWindow(object):
 
         self.origen_Y1 = QLineEdit(self.layoutWidget)
         self.origen_Y1.setObjectName(u"origen_Y1")
+        self.origen_Y1.setStyleSheet(u"background-color: rgb(255, 255, 255);")
 
         self.formLayout_2.setWidget(2, QFormLayout.FieldRole, self.origen_Y1)
 
@@ -103,6 +113,7 @@ class Ui_MainWindow(object):
 
         self.destino_X2 = QLineEdit(self.layoutWidget)
         self.destino_X2.setObjectName(u"destino_X2")
+        self.destino_X2.setStyleSheet(u"background-color: rgb(255, 255, 255);")
 
         self.formLayout_2.setWidget(3, QFormLayout.FieldRole, self.destino_X2)
 
@@ -113,6 +124,7 @@ class Ui_MainWindow(object):
 
         self.destino_Y2 = QLineEdit(self.layoutWidget)
         self.destino_Y2.setObjectName(u"destino_Y2")
+        self.destino_Y2.setStyleSheet(u"background-color: rgb(255, 255, 255);")
 
         self.formLayout_2.setWidget(4, QFormLayout.FieldRole, self.destino_Y2)
 
@@ -123,6 +135,7 @@ class Ui_MainWindow(object):
 
         self.velocidad = QLineEdit(self.layoutWidget)
         self.velocidad.setObjectName(u"velocidad")
+        self.velocidad.setStyleSheet(u"background-color: rgb(255, 255, 255);")
 
         self.formLayout_2.setWidget(5, QFormLayout.FieldRole, self.velocidad)
 
@@ -133,7 +146,8 @@ class Ui_MainWindow(object):
 
         self.red = QSpinBox(self.tab)
         self.red.setObjectName(u"red")
-        self.red.setGeometry(QRect(110, 260, 131, 20))
+        self.red.setGeometry(QRect(110, 260, 141, 20))
+        self.red.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.red.setMaximum(255)
         self.red.setValue(0)
         self.label_6 = QLabel(self.tab)
@@ -143,13 +157,28 @@ class Ui_MainWindow(object):
         self.label_9.setObjectName(u"label_9")
         self.label_9.setGeometry(QRect(73, 9, 107, 25))
         self.label_9.setStyleSheet(u"font: 75 16pt \"MS Shell Dlg 2\";\n"
-"color: rgb(0, 85, 0);\n"
-"color: rgb(44, 124, 22);")
+"color: rgb(2, 107, 77);")
         self.label_9.setIndent(2)
         self.salidaDatos = QPlainTextEdit(self.tab)
         self.salidaDatos.setObjectName(u"salidaDatos")
-        self.salidaDatos.setGeometry(QRect(300, 30, 291, 381))
-        self.tabWidget.addTab(self.tab, "")
+        self.salidaDatos.setGeometry(QRect(290, 30, 311, 381))
+        self.salidaDatos.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"gridline-color: rgb(85, 0, 127);")
+        self.label_12 = QLabel(self.tab)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setGeometry(QRect(70, 220, 21, 21))
+        self.label_12.setStyleSheet(u"font: 11pt \"MS Reference Sans Serif\";\n"
+"color: rgb(23, 127, 35);")
+        self.label_12.setMargin(0)
+        self.label_12.setIndent(2)
+        self.label_13 = QLabel(self.tab)
+        self.label_13.setObjectName(u"label_13")
+        self.label_13.setGeometry(QRect(90, 220, 16, 21))
+        self.label_13.setStyleSheet(u"font: 11pt \"MS Reference Sans Serif\";\n"
+"color: rgb(16, 140, 255);")
+        self.label_13.setMargin(0)
+        self.label_13.setIndent(5)
+        self.Pintar.addTab(self.tab, "")
         self.tab_2 = QWidget()
         self.tab_2.setObjectName(u"tab_2")
         self.gridLayout = QGridLayout(self.tab_2)
@@ -158,12 +187,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.busca_linea = QLineEdit(self.tab_2)
         self.busca_linea.setObjectName(u"busca_linea")
+        self.busca_linea.setStyleSheet(u"background-color: rgb(255, 255, 255);")
 
         self.horizontalLayout.addWidget(self.busca_linea)
 
         self.busca = QPushButton(self.tab_2)
         self.busca.setObjectName(u"busca")
-        self.busca.setStyleSheet(u"background-color: rgb(44, 124, 22);\n"
+        self.busca.setStyleSheet(u"background-color: rgb(2, 107, 77);\n"
 "color: rgb(255, 255, 255);")
 
         self.horizontalLayout.addWidget(self.busca)
@@ -180,7 +210,7 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(9)
         self.tabla.setFont(font)
-        self.tabla.setStyleSheet(u"")
+        self.tabla.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.tabla.setAutoScrollMargin(19)
         self.tabla.setTextElideMode(Qt.ElideMiddle)
         self.tabla.setShowGrid(True)
@@ -191,12 +221,37 @@ class Ui_MainWindow(object):
 
         self.mostrar = QPushButton(self.tab_2)
         self.mostrar.setObjectName(u"mostrar")
-        self.mostrar.setStyleSheet(u"background-color: rgb(44, 124, 22);\n"
+        self.mostrar.setStyleSheet(u"background-color: rgb(2, 107, 77);\n"
 "color: rgb(255, 255, 255);")
 
         self.gridLayout.addWidget(self.mostrar, 2, 0, 1, 1)
 
-        self.tabWidget.addTab(self.tab_2, "")
+        self.Pintar.addTab(self.tab_2, "")
+        self.tab_3 = QWidget()
+        self.tab_3.setObjectName(u"tab_3")
+        self.gridLayout_2 = QGridLayout(self.tab_3)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.graphicsView = QGraphicsView(self.tab_3)
+        self.graphicsView.setObjectName(u"graphicsView")
+        self.graphicsView.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+
+        self.gridLayout_2.addWidget(self.graphicsView, 0, 0, 1, 2)
+
+        self.dibuja = QPushButton(self.tab_3)
+        self.dibuja.setObjectName(u"dibuja")
+        self.dibuja.setStyleSheet(u"background-color: rgb(2, 107, 77);\n"
+"color: rgb(255, 255, 255);")
+
+        self.gridLayout_2.addWidget(self.dibuja, 1, 0, 1, 1)
+
+        self.limpia = QPushButton(self.tab_3)
+        self.limpia.setObjectName(u"limpia")
+        self.limpia.setStyleSheet(u"background-color: rgb(2, 107, 77);\n"
+"color: rgb(255, 255, 255);")
+
+        self.gridLayout_2.addWidget(self.limpia, 1, 1, 1, 1)
+
+        self.Pintar.addTab(self.tab_3, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -214,7 +269,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.Pintar.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -231,9 +286,9 @@ class Ui_MainWindow(object):
         self.actionGuardar.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+S", None))
 #endif // QT_CONFIG(shortcut)
         self.muestra.setText(QCoreApplication.translate("MainWindow", u"Mostrar", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"b", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"g", None))
         self.inserta.setText(QCoreApplication.translate("MainWindow", u"Agregar", None))
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Color", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"C o", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"r", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Origen X", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Origen Y", None))
@@ -241,12 +296,17 @@ class Ui_MainWindow(object):
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Destino Y", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"Velocidad", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Id", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"g", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"b", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Part\u00edculas</span></p></body></html>", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Agregar", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"l o", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"r", None))
+        self.Pintar.setTabText(self.Pintar.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Agregar", None))
         self.busca.setText(QCoreApplication.translate("MainWindow", u"Buscar", None))
         self.mostrar.setText(QCoreApplication.translate("MainWindow", u"Mostrar", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Tabla", None))
+        self.Pintar.setTabText(self.Pintar.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Tabla", None))
+        self.dibuja.setText(QCoreApplication.translate("MainWindow", u"Dibujar", None))
+        self.limpia.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
+        self.Pintar.setTabText(self.Pintar.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"Pintar", None))
         self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
     # retranslateUi
 

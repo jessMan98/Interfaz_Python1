@@ -4,7 +4,7 @@ import sys
 
 
 app = QApplication()
-ventana = MainWindow()
+ventana = MainWindow(   )
 ventana.show()
 
 sys.exit(app.exec_())
