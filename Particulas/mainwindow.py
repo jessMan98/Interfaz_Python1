@@ -29,46 +29,47 @@ class MainWindow(QMainWindow):
         self.ui.dibuja.clicked.connect(self.dibujar)
         self.ui.limpia.clicked.connect(self.limpiar)
 
-        #creacion del objeto Scene
+        # creacion del objeto Scene
         self.scene = QGraphicsScene()
-        #agregamos la escena a graficsView
+        # agregamos la escena a graficsView
         self.ui.graphicsView.setScene(self.scene)
-
-    def wheelEvent(self, event):
-        #imprime valor del scrooll del mouse
-        print(event.delta())
-
-        if event.delta() > 0:
-            #escala a 20%
-            self.ui.graphicsView.scale(1.2, 1.2)
-        else:
-            self.ui.graphicsView.scale(0.8, 0.8)
 
     @Slot()
     def dibujar(self):
-        #creacion del objeto QPen
+        # creacion del objeto QPen
         pen = QPen()
-        #ancho de 2 pixeles
+        # ancho de 2 pixeles
         pen.setWidth(2)
 
         for e in self.particles:
-            #agregamos color
+            # agregamos color
             color = QColor(e['color']['red'], e['color']['green'], e['color']['blue'])
             pen.setColor(color)
 
             # posicion xy, radio
             self.scene.addEllipse(e['origen']['x'], e['origen']['y'], 8, 8, pen)
             self.scene.addEllipse(e['destino']['x'], e['destino']['y'], 8, 8, pen)
-            
-            #primer circulo, segundo circulo
-            self.scene.addLine(e['origen']['x']+4, e['origen']['y']+4, e['destino']['x']+4, e['destino']['y']+4, pen)
+
+            # primer circulo, segundo circulo
+            self.scene.addLine(e['origen']['x'] + 4, e['origen']['y'] + 4, e['destino']['x'] + 4, e['destino']['y'] + 4,
+                               pen)
 
     @Slot()
     def limpiar(self):
-        #limpia la escena
+        # limpia la escena
         self.scene.clear()
-        #escala al tamaño original
+        # escala al tamaño original
         self.ui.graphicsView.setTransform(QTransform())
+
+    def wheelEvent(self, event):
+        # imprime valor del scrooll del mouse
+        print(event.delta())
+
+        if event.delta() > 0:
+            # escala a 20%
+            self.ui.graphicsView.scale(1.2, 1.2)
+        else:
+            self.ui.graphicsView.scale(0.8, 0.8)
 
     def calculoEuclidiano(self, x_uno, y_uno, x_dos, y_dos):
         a = math.pow((x_dos - x_uno), 2)
@@ -93,7 +94,7 @@ class MainWindow(QMainWindow):
 
         id = int(self.ui.busca_linea.text())
 
-        #busqueda del id
+        # busqueda del id
         for item in self.particles:
             if id == item['id']:
                 particula.append(item)
@@ -117,7 +118,7 @@ class MainWindow(QMainWindow):
         self.ui.tabla.setRowCount(len(particulas))
 
         # etiquetas para los headers de la tabla
-        labels = ['ID', 'OrigenX', 'OrigenY', 'DestinoX', 'DestinoY', 'Velocidad', 'Red', 'Green', 'Blue','Distancia']
+        labels = ['ID', 'OrigenX', 'OrigenY', 'DestinoX', 'DestinoY', 'Velocidad', 'Red', 'Green', 'Blue', 'Distancia']
         self.ui.tabla.setHorizontalHeaderLabels(labels)
 
         # contador de filas
@@ -192,7 +193,7 @@ class MainWindow(QMainWindow):
             self.dis = self.calculoEuclidiano(i['origen']['x'], i['origen']['y'], i['destino']['x'], i['destino']['y'])
             print(self.dis)
 
-            #insertamos llave y valor en el plainText
+            # insertamos llave y valor en el plainText
             for x, v in i.items():
                 self.ui.salidaDatos.insertPlainText(x + ":" + str(v) + "\n")
 
