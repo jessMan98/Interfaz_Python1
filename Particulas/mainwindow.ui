@@ -15,11 +15,13 @@
   </property>
   <property name="styleSheet">
    <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(1, 165, 113);
+
 
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QTabWidget" name="Pintar">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -29,7 +31,9 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">
+background-color: rgb(201, 232, 222);
+</string>
     </property>
     <property name="currentIndex">
      <number>0</number>
@@ -43,12 +47,12 @@
        <rect>
         <x>50</x>
         <y>380</y>
-        <width>191</width>
+        <width>201</width>
         <height>23</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(44, 124, 22);
+       <string notr="true">background-color: rgb(2, 107, 77);
 color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
@@ -65,7 +69,7 @@ color: rgb(255, 255, 255);</string>
        </rect>
       </property>
       <property name="text">
-       <string>b</string>
+       <string>g</string>
       </property>
      </widget>
      <widget class="QSpinBox" name="green">
@@ -73,9 +77,12 @@ color: rgb(255, 255, 255);</string>
        <rect>
         <x>110</x>
         <y>290</y>
-        <width>131</width>
+        <width>141</width>
         <height>20</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="maximum">
        <number>255</number>
@@ -86,12 +93,13 @@ color: rgb(255, 255, 255);</string>
        <rect>
         <x>50</x>
         <y>350</y>
-        <width>191</width>
+        <width>201</width>
         <height>23</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(44, 124, 22);
+       <string notr="true">background-color: rgb(2, 107, 77);
+
 color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
@@ -103,9 +111,12 @@ color: rgb(255, 255, 255);</string>
        <rect>
         <x>110</x>
         <y>320</y>
-        <width>131</width>
+        <width>141</width>
         <height>20</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="maximum">
        <number>255</number>
@@ -114,18 +125,18 @@ color: rgb(255, 255, 255);</string>
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>40</x>
         <y>220</y>
-        <width>40</width>
-        <height>19</height>
+        <width>31</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">
-font: 11pt &quot;MS Reference Sans Serif&quot;;</string>
+       <string notr="true">font: 11pt &quot;MS Reference Sans Serif&quot;;
+color:rgb(208, 6, 9);</string>
       </property>
       <property name="text">
-       <string>Color</string>
+       <string>C o</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_4">
@@ -152,7 +163,11 @@ font: 11pt &quot;MS Reference Sans Serif&quot;;</string>
       </property>
       <layout class="QFormLayout" name="formLayout_2">
        <item row="0" column="1">
-        <widget class="QLineEdit" name="id"/>
+        <widget class="QLineEdit" name="id">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+        </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label">
@@ -162,7 +177,11 @@ font: 11pt &quot;MS Reference Sans Serif&quot;;</string>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="origen_X1"/>
+        <widget class="QLineEdit" name="origen_X1">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+        </widget>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="label_2">
@@ -172,7 +191,11 @@ font: 11pt &quot;MS Reference Sans Serif&quot;;</string>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="origen_Y1"/>
+        <widget class="QLineEdit" name="origen_Y1">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+        </widget>
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="label_3">
@@ -182,7 +205,11 @@ font: 11pt &quot;MS Reference Sans Serif&quot;;</string>
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QLineEdit" name="destino_X2"/>
+        <widget class="QLineEdit" name="destino_X2">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+        </widget>
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="label_7">
@@ -192,7 +219,11 @@ font: 11pt &quot;MS Reference Sans Serif&quot;;</string>
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QLineEdit" name="destino_Y2"/>
+        <widget class="QLineEdit" name="destino_Y2">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+        </widget>
        </item>
        <item row="5" column="0">
         <widget class="QLabel" name="label_10">
@@ -202,7 +233,11 @@ font: 11pt &quot;MS Reference Sans Serif&quot;;</string>
         </widget>
        </item>
        <item row="5" column="1">
-        <widget class="QLineEdit" name="velocidad"/>
+        <widget class="QLineEdit" name="velocidad">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+        </widget>
        </item>
        <item row="0" column="0">
         <widget class="QLabel" name="label_11">
@@ -218,9 +253,12 @@ font: 11pt &quot;MS Reference Sans Serif&quot;;</string>
        <rect>
         <x>110</x>
         <y>260</y>
-        <width>131</width>
+        <width>141</width>
         <height>20</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
       </property>
       <property name="maximum">
        <number>255</number>
@@ -239,7 +277,7 @@ font: 11pt &quot;MS Reference Sans Serif&quot;;</string>
        </rect>
       </property>
       <property name="text">
-       <string>g</string>
+       <string>b</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_9">
@@ -253,8 +291,7 @@ font: 11pt &quot;MS Reference Sans Serif&quot;;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">font: 75 16pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(0, 85, 0);
-color: rgb(44, 124, 22);</string>
+color: rgb(2, 107, 77);</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Partículas&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -266,11 +303,61 @@ color: rgb(44, 124, 22);</string>
      <widget class="QPlainTextEdit" name="salidaDatos">
       <property name="geometry">
        <rect>
-        <x>300</x>
+        <x>290</x>
         <y>30</y>
-        <width>291</width>
+        <width>311</width>
         <height>381</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+gridline-color: rgb(85, 0, 127);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>220</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 11pt &quot;MS Reference Sans Serif&quot;;
+color: rgb(23, 127, 35);</string>
+      </property>
+      <property name="text">
+       <string>l o</string>
+      </property>
+      <property name="margin">
+       <number>0</number>
+      </property>
+      <property name="indent">
+       <number>2</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>220</y>
+        <width>16</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 11pt &quot;MS Reference Sans Serif&quot;;
+color: rgb(16, 140, 255);</string>
+      </property>
+      <property name="text">
+       <string>r</string>
+      </property>
+      <property name="margin">
+       <number>0</number>
+      </property>
+      <property name="indent">
+       <number>5</number>
       </property>
      </widget>
     </widget>
@@ -282,12 +369,16 @@ color: rgb(44, 124, 22);</string>
       <item row="0" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QLineEdit" name="busca_linea"/>
+         <widget class="QLineEdit" name="busca_linea">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);</string>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QPushButton" name="busca">
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(44, 124, 22);
+           <string notr="true">background-color: rgb(2, 107, 77);
 color: rgb(255, 255, 255);</string>
           </property>
           <property name="text">
@@ -309,7 +400,7 @@ color: rgb(255, 255, 255);</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
         <property name="autoScrollMargin">
          <number>19</number>
@@ -331,11 +422,47 @@ color: rgb(255, 255, 255);</string>
       <item row="2" column="0">
        <widget class="QPushButton" name="mostrar">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(44, 124, 22);
+         <string notr="true">background-color: rgb(2, 107, 77);
 color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
          <string>Mostrar</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Pintar</string>
+     </attribute>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0" colspan="2">
+       <widget class="QGraphicsView" name="graphicsView">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="dibuja">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(2, 107, 77);
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Dibujar</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="limpia">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(2, 107, 77);
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Limpiar</string>
         </property>
        </widget>
       </item>
