@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>669</width>
-    <height>503</height>
+    <width>651</width>
+    <height>519</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,10 +24,10 @@ background-color: rgb(1, 165, 113);
    <widget class="QTabWidget" name="Pintar">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>10</y>
       <width>631</width>
-      <height>451</height>
+      <height>471</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -45,8 +45,8 @@ background-color: rgb(201, 232, 222);
      <widget class="QPushButton" name="muestra">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>380</y>
+        <x>40</x>
+        <y>390</y>
         <width>201</width>
         <height>23</height>
        </rect>
@@ -75,7 +75,7 @@ color: rgb(255, 255, 255);</string>
      <widget class="QSpinBox" name="green">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>100</x>
         <y>290</y>
         <width>141</width>
         <height>20</height>
@@ -91,8 +91,8 @@ color: rgb(255, 255, 255);</string>
      <widget class="QPushButton" name="inserta">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>350</y>
+        <x>40</x>
+        <y>360</y>
         <width>201</width>
         <height>23</height>
        </rect>
@@ -109,7 +109,7 @@ color: rgb(255, 255, 255);</string>
      <widget class="QSpinBox" name="blue">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>100</x>
         <y>320</y>
         <width>141</width>
         <height>20</height>
@@ -155,7 +155,7 @@ color:rgb(208, 6, 9);</string>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>40</x>
         <y>50</y>
         <width>201</width>
         <height>164</height>
@@ -179,7 +179,8 @@ color:rgb(208, 6, 9);</string>
        <item row="1" column="1">
         <widget class="QLineEdit" name="origen_X1">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 255);</string>
+          <string notr="true">background-color: rgb(255,255,255);
+</string>
          </property>
         </widget>
        </item>
@@ -251,7 +252,7 @@ color:rgb(208, 6, 9);</string>
      <widget class="QSpinBox" name="red">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>100</x>
         <y>260</y>
         <width>141</width>
         <height>20</height>
@@ -303,15 +304,17 @@ color: rgb(2, 107, 77);</string>
      <widget class="QPlainTextEdit" name="salidaDatos">
       <property name="geometry">
        <rect>
-        <x>290</x>
+        <x>260</x>
         <y>30</y>
-        <width>311</width>
-        <height>381</height>
+        <width>341</width>
+        <height>391</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);
-gridline-color: rgb(85, 0, 127);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="backgroundVisible">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="label_12">
@@ -440,7 +443,7 @@ color: rgb(255, 255, 255);</string>
       <item row="0" column="0" colspan="2">
        <widget class="QGraphicsView" name="graphicsView">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(35, 40, 43);</string>
         </property>
        </widget>
       </item>
@@ -466,6 +469,39 @@ color: rgb(255, 255, 255);</string>
         </property>
        </widget>
       </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="Line" name="line">
+        <property name="styleSheet">
+         <string notr="true">
+border-color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="ordenaV">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(2, 107, 77);
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Ordenar Velocidad</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="ordenaD">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(2, 107, 77);
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Ordenar Distancia</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </widget>
@@ -475,7 +511,7 @@ color: rgb(255, 255, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>669</width>
+     <width>651</width>
      <height>22</height>
     </rect>
    </property>
@@ -503,6 +539,16 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionDistancia">
+   <property name="text">
+    <string>Distancia</string>
+   </property>
+  </action>
+  <action name="actionVelocidad">
+   <property name="text">
+    <string>Velocidad</string>
    </property>
   </action>
  </widget>

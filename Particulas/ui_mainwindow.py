@@ -20,7 +20,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(669, 503)
+        MainWindow.resize(651, 519)
         MainWindow.setStyleSheet(u"font: 75 10pt \"MS Shell Dlg 2\";\n"
 "background-color: rgb(1, 165, 113);\n"
 "\n"
@@ -30,11 +30,15 @@ class Ui_MainWindow(object):
         self.actionAbrir.setObjectName(u"actionAbrir")
         self.actionGuardar = QAction(MainWindow)
         self.actionGuardar.setObjectName(u"actionGuardar")
+        self.actionDistancia = QAction(MainWindow)
+        self.actionDistancia.setObjectName(u"actionDistancia")
+        self.actionVelocidad = QAction(MainWindow)
+        self.actionVelocidad.setObjectName(u"actionVelocidad")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.Pintar = QTabWidget(self.centralwidget)
         self.Pintar.setObjectName(u"Pintar")
-        self.Pintar.setGeometry(QRect(20, 10, 631, 451))
+        self.Pintar.setGeometry(QRect(10, 10, 631, 471))
         self.Pintar.setStyleSheet(u"\n"
 "background-color: rgb(201, 232, 222);\n"
 "")
@@ -42,7 +46,7 @@ class Ui_MainWindow(object):
         self.tab.setObjectName(u"tab")
         self.muestra = QPushButton(self.tab)
         self.muestra.setObjectName(u"muestra")
-        self.muestra.setGeometry(QRect(50, 380, 201, 23))
+        self.muestra.setGeometry(QRect(40, 390, 201, 23))
         self.muestra.setStyleSheet(u"background-color: rgb(2, 107, 77);\n"
 "color: rgb(255, 255, 255);")
         self.label_5 = QLabel(self.tab)
@@ -50,18 +54,18 @@ class Ui_MainWindow(object):
         self.label_5.setGeometry(QRect(50, 290, 16, 16))
         self.green = QSpinBox(self.tab)
         self.green.setObjectName(u"green")
-        self.green.setGeometry(QRect(110, 290, 141, 20))
+        self.green.setGeometry(QRect(100, 290, 141, 20))
         self.green.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.green.setMaximum(255)
         self.inserta = QPushButton(self.tab)
         self.inserta.setObjectName(u"inserta")
-        self.inserta.setGeometry(QRect(50, 350, 201, 23))
+        self.inserta.setGeometry(QRect(40, 360, 201, 23))
         self.inserta.setStyleSheet(u"background-color: rgb(2, 107, 77);\n"
 "\n"
 "color: rgb(255, 255, 255);")
         self.blue = QSpinBox(self.tab)
         self.blue.setObjectName(u"blue")
-        self.blue.setGeometry(QRect(110, 320, 141, 20))
+        self.blue.setGeometry(QRect(100, 320, 141, 20))
         self.blue.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.blue.setMaximum(255)
         self.label_8 = QLabel(self.tab)
@@ -74,7 +78,7 @@ class Ui_MainWindow(object):
         self.label_4.setGeometry(QRect(50, 260, 16, 16))
         self.layoutWidget = QWidget(self.tab)
         self.layoutWidget.setObjectName(u"layoutWidget")
-        self.layoutWidget.setGeometry(QRect(50, 50, 201, 164))
+        self.layoutWidget.setGeometry(QRect(40, 50, 201, 164))
         self.formLayout_2 = QFormLayout(self.layoutWidget)
         self.formLayout_2.setObjectName(u"formLayout_2")
         self.formLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -91,7 +95,8 @@ class Ui_MainWindow(object):
 
         self.origen_X1 = QLineEdit(self.layoutWidget)
         self.origen_X1.setObjectName(u"origen_X1")
-        self.origen_X1.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.origen_X1.setStyleSheet(u"background-color: rgb(255,255,255);\n"
+"")
 
         self.formLayout_2.setWidget(1, QFormLayout.FieldRole, self.origen_X1)
 
@@ -146,7 +151,7 @@ class Ui_MainWindow(object):
 
         self.red = QSpinBox(self.tab)
         self.red.setObjectName(u"red")
-        self.red.setGeometry(QRect(110, 260, 141, 20))
+        self.red.setGeometry(QRect(100, 260, 141, 20))
         self.red.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.red.setMaximum(255)
         self.red.setValue(0)
@@ -161,9 +166,9 @@ class Ui_MainWindow(object):
         self.label_9.setIndent(2)
         self.salidaDatos = QPlainTextEdit(self.tab)
         self.salidaDatos.setObjectName(u"salidaDatos")
-        self.salidaDatos.setGeometry(QRect(290, 30, 311, 381))
-        self.salidaDatos.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"gridline-color: rgb(85, 0, 127);")
+        self.salidaDatos.setGeometry(QRect(260, 30, 341, 391))
+        self.salidaDatos.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.salidaDatos.setBackgroundVisible(False)
         self.label_12 = QLabel(self.tab)
         self.label_12.setObjectName(u"label_12")
         self.label_12.setGeometry(QRect(70, 220, 21, 21))
@@ -233,7 +238,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.graphicsView = QGraphicsView(self.tab_3)
         self.graphicsView.setObjectName(u"graphicsView")
-        self.graphicsView.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.graphicsView.setStyleSheet(u"background-color: rgb(35, 40, 43);")
 
         self.gridLayout_2.addWidget(self.graphicsView, 0, 0, 1, 2)
 
@@ -251,11 +256,34 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.limpia, 1, 1, 1, 1)
 
+        self.line = QFrame(self.tab_3)
+        self.line.setObjectName(u"line")
+        self.line.setStyleSheet(u"\n"
+"border-color: rgb(0, 0, 0);")
+        self.line.setFrameShape(QFrame.HLine)
+        self.line.setFrameShadow(QFrame.Sunken)
+
+        self.gridLayout_2.addWidget(self.line, 2, 0, 1, 2)
+
+        self.ordenaV = QPushButton(self.tab_3)
+        self.ordenaV.setObjectName(u"ordenaV")
+        self.ordenaV.setStyleSheet(u"background-color: rgb(2, 107, 77);\n"
+"color: rgb(255, 255, 255);")
+
+        self.gridLayout_2.addWidget(self.ordenaV, 3, 0, 1, 1)
+
+        self.ordenaD = QPushButton(self.tab_3)
+        self.ordenaD.setObjectName(u"ordenaD")
+        self.ordenaD.setStyleSheet(u"background-color: rgb(2, 107, 77);\n"
+"color: rgb(255, 255, 255);")
+
+        self.gridLayout_2.addWidget(self.ordenaD, 3, 1, 1, 1)
+
         self.Pintar.addTab(self.tab_3, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 669, 22))
+        self.menubar.setGeometry(QRect(0, 0, 651, 22))
         self.menuArchivo = QMenu(self.menubar)
         self.menuArchivo.setObjectName(u"menuArchivo")
         MainWindow.setMenuBar(self.menubar)
@@ -285,6 +313,8 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(shortcut)
         self.actionGuardar.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+S", None))
 #endif // QT_CONFIG(shortcut)
+        self.actionDistancia.setText(QCoreApplication.translate("MainWindow", u"Distancia", None))
+        self.actionVelocidad.setText(QCoreApplication.translate("MainWindow", u"Velocidad", None))
         self.muestra.setText(QCoreApplication.translate("MainWindow", u"Mostrar", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"g", None))
         self.inserta.setText(QCoreApplication.translate("MainWindow", u"Agregar", None))
@@ -306,6 +336,8 @@ class Ui_MainWindow(object):
         self.Pintar.setTabText(self.Pintar.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Tabla", None))
         self.dibuja.setText(QCoreApplication.translate("MainWindow", u"Dibujar", None))
         self.limpia.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
+        self.ordenaV.setText(QCoreApplication.translate("MainWindow", u"Ordenar Velocidad", None))
+        self.ordenaD.setText(QCoreApplication.translate("MainWindow", u"Ordenar Distancia", None))
         self.Pintar.setTabText(self.Pintar.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"Pintar", None))
         self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
     # retranslateUi
