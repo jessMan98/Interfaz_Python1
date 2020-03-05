@@ -10,6 +10,7 @@ class MainWindow(QMainWindow):
     # lista de Particulas
     particles = []
     dis = 0
+    distancia = []
 
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -29,30 +30,68 @@ class MainWindow(QMainWindow):
         self.ui.dibuja.clicked.connect(self.dibujar)
         self.ui.limpia.clicked.connect(self.limpiar)
 
+        self.ui.ordenaD.clicked.connect(self.disSort)
+        self.ui.ordenaV.clicked.connect(self.velocitySort)
+
         # creacion del objeto Scene
         self.scene = QGraphicsScene()
         # agregamos la escena a graficsView
         self.ui.graphicsView.setScene(self.scene)
 
+        self.pen = QPen()
+        self.pen.setWidth(2)
+
+    @Slot()
+    def velocitySort(self):
+        y = 0
+        self.agregaDistancia()
+        #ordenamos la lista por el atributo velocidad
+        self.distancia.sort(key=lambda p: p['velocidad'])
+
+        for v in self.distancia:
+
+            color = QColor(v['color']['red'], v['color']['green'], v['color']['blue'])
+            self.pen.setColor(color)
+
+            self.scene.addLine(0, y, v['distancia'], y, self.pen)
+            y += 2
+
+    def agregaDistancia(self):
+
+        for d in self.distancia:
+            self.dis = self.calculoEuclidiano(d['origen']['x'], d['origen']['y'], d['destino']['x'], d['destino']['y'])
+            d['distancia'] = self.dis
+
+    @Slot()
+    def disSort(self):
+        y = 0
+        self.agregaDistancia()
+        #ordena la lista de manera ascendente por distancia
+        self.distancia.sort(key=lambda d: d['distancia'], reverse=True)
+
+        for i in self.distancia:
+            print(i)
+            color = QColor(i['color']['red'], i['color']['green'], i['color']['blue'])
+            self.pen.setColor(color)
+
+            self.scene.addLine(0, y, i['distancia'], y, self.pen)
+            y += 2
+
     @Slot()
     def dibujar(self):
-        # creacion del objeto QPen
-        pen = QPen()
-        # ancho de 2 pixeles
-        pen.setWidth(2)
 
         for e in self.particles:
             # agregamos color
             color = QColor(e['color']['red'], e['color']['green'], e['color']['blue'])
-            pen.setColor(color)
+            self.pen.setColor(color)
 
             # posicion xy, radio
-            self.scene.addEllipse(e['origen']['x'], e['origen']['y'], 8, 8, pen)
-            self.scene.addEllipse(e['destino']['x'], e['destino']['y'], 8, 8, pen)
+            self.scene.addEllipse(e['origen']['x'], e['origen']['y'], 8, 8, self.pen)
+            self.scene.addEllipse(e['destino']['x'], e['destino']['y'], 8, 8, self.pen)
 
             # primer circulo, segundo circulo
             self.scene.addLine(e['origen']['x'] + 4, e['origen']['y'] + 4, e['destino']['x'] + 4, e['destino']['y'] + 4,
-                               pen)
+                               self.pen)
 
     @Slot()
     def limpiar(self):
@@ -207,6 +246,9 @@ class MainWindow(QMainWindow):
         with open(ubicacion[0], 'r') as archivo:
             # carga el archivo a la lista
             self.particles = json.load(archivo)
+
+        for i in self.particles:
+            self.distancia.append(i)
 
     @Slot()
     def guardar(self):
