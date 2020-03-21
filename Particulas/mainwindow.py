@@ -1,7 +1,7 @@
 from PySide2.QtWidgets import QMainWindow, QFileDialog, QTableWidgetItem, QMessageBox, QGraphicsScene
 from ui_mainwindow import Ui_MainWindow
 from PySide2.QtCore import Slot
-from PySide2.QtGui import QPen, QColor, QTransform
+from PySide2.QtGui import QPen, QColor, QTransform, QBrush
 import json
 import math
 
@@ -9,8 +9,10 @@ import math
 class MainWindow(QMainWindow):
     # lista de Particulas
     particles = []
-    dis = 0
     distancia = []
+    puntos = []
+
+    dis = 0
 
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -41,15 +43,69 @@ class MainWindow(QMainWindow):
         self.pen = QPen()
         self.pen.setWidth(2)
 
+        self.ui.actionPuntos.triggered.connect(self.dibujaP)
+        self.ui.actionPuntos_cercanos.triggered.connect(self.minimoFB)
+
+    @Slot()
+    def minimoFB(self):
+
+        # recorrido lista puntos
+        for origen in range(0, len(self.puntos), 1):
+
+            menor = 10000
+            # tupla en el que se guardara el destino menor
+            tuplaP = (0, 0)
+
+            for destino in range(0, len(self.puntos), 1):
+                x1 = self.puntos[origen]['x']
+                y1 = self.puntos[origen]['y']
+
+                x2 = self.puntos[destino]['x']
+                y2 = self.puntos[destino]['y']
+
+                self.dis = self.calculoEuclidiano(x1, y1, x2, y2)
+
+                # validamos la distancia
+                if 0 < self.dis < menor:
+                    menor = self.dis
+                    tuplaP = (x2, y2)
+
+            ox = self.puntos[origen]['x']
+            oy = self.puntos[origen]['y']
+
+            dx = tuplaP[0]
+            dy = tuplaP[1]
+
+            for p in self.particles:
+                if self.puntos[origen] == p['origen'] or self.puntos[origen] == p['destino']:
+                    #tupla donde se almacena el color
+                    tuplaC = (p['color'])
+
+            color = QColor(tuplaC['red'], tuplaC['green'], tuplaC['blue'])
+            self.pen.setColor(color)
+
+            #dibujamos la linea con su punto mas cercano
+            self.scene.addLine(ox + 3, oy + 3, dx + 3, dy + 3, self.pen)
+
+    @Slot()
+    def dibujaP(self):
+
+        for p in self.particles:
+            color = QColor(p['color']['red'], p['color']['green'], p['color']['blue'])
+            self.pen.setColor(color)
+            relleno = QBrush(color)
+
+            self.scene.addEllipse(p['origen']['x'], p['origen']['y'], 6, 6, self.pen, relleno)
+            self.scene.addEllipse(p['destino']['x'], p['destino']['y'], 6, 6, self.pen, relleno)
+
     @Slot()
     def velocitySort(self):
         y = 0
         self.agregaDistancia()
-        #ordenamos la lista por el atributo velocidad
+        # ordenamos la lista por el atributo velocidad
         self.distancia.sort(key=lambda p: p['velocidad'])
 
         for v in self.distancia:
-
             color = QColor(v['color']['red'], v['color']['green'], v['color']['blue'])
             self.pen.setColor(color)
 
@@ -66,11 +122,10 @@ class MainWindow(QMainWindow):
     def disSort(self):
         y = 0
         self.agregaDistancia()
-        #ordena la lista de manera ascendente por distancia
+        # ordena la lista de manera ascendente por distancia
         self.distancia.sort(key=lambda d: d['distancia'], reverse=True)
 
         for i in self.distancia:
-            print(i)
             color = QColor(i['color']['red'], i['color']['green'], i['color']['blue'])
             self.pen.setColor(color)
 
@@ -86,7 +141,7 @@ class MainWindow(QMainWindow):
             self.pen.setColor(color)
 
             # posicion xy, radio
-            self.scene.addEllipse(e['origen']['x'], e['origen']['y'], 8, 8, self.pen)
+            self.scene.addEllipse(e['origen']['x'], e['origen']['y'], 8, 8, self.pen, )
             self.scene.addEllipse(e['destino']['x'], e['destino']['y'], 8, 8, self.pen)
 
             # primer circulo, segundo circulo
@@ -249,6 +304,8 @@ class MainWindow(QMainWindow):
 
         for i in self.particles:
             self.distancia.append(i)
+            self.puntos.append(i['origen'])
+            self.puntos.append(i['destino'])
 
     @Slot()
     def guardar(self):
