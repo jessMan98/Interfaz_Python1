@@ -522,7 +522,22 @@ color: rgb(255, 255, 255);</string>
     <addaction name="actionAbrir"/>
     <addaction name="actionGuardar"/>
    </widget>
+   <widget class="QMenu" name="menuPuntos">
+    <property name="title">
+     <string>Ver</string>
+    </property>
+    <addaction name="actionPuntos"/>
+    <addaction name="actionGrafo"/>
+   </widget>
+   <widget class="QMenu" name="menuAlgoritmos">
+    <property name="title">
+     <string>Algoritmos</string>
+    </property>
+    <addaction name="actionPuntos_cercanos"/>
+   </widget>
    <addaction name="menuArchivo"/>
+   <addaction name="menuPuntos"/>
+   <addaction name="menuAlgoritmos"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAbrir">
@@ -549,6 +564,27 @@ color: rgb(255, 255, 255);</string>
   <action name="actionVelocidad">
    <property name="text">
     <string>Velocidad</string>
+   </property>
+  </action>
+  <action name="actionPuntos">
+   <property name="text">
+    <string>Puntos</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionPuntos_cercanos">
+   <property name="text">
+    <string>Puntos cercanos</string>
+   </property>
+  </action>
+  <action name="actionGrafo">
+   <property name="text">
+    <string>Grafo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
    </property>
   </action>
  </widget>
