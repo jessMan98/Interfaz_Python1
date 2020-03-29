@@ -4,6 +4,7 @@ from PySide2.QtCore import Slot
 from PySide2.QtGui import QPen, QColor, QTransform, QBrush
 import json
 import math
+from pprint import pformat
 
 
 class MainWindow(QMainWindow):
@@ -11,6 +12,7 @@ class MainWindow(QMainWindow):
     particles = []
     distancia = []
     puntos = []
+    grafo = {}
 
     dis = 0
 
@@ -46,6 +48,54 @@ class MainWindow(QMainWindow):
         self.ui.actionPuntos.triggered.connect(self.dibujaP)
         self.ui.actionPuntos_cercanos.triggered.connect(self.minimoFB)
 
+        self.ui.actionGrafo.triggered.connect(self.Graph)
+        self.ui.exit.clicked.connect(self.salir)
+
+    @Slot()
+    def salir(self):
+        exit()
+
+    @Slot()
+    def Graph(self):
+        # recorremos las particulas
+        for v in self.particles:
+            x1 = v['origen']['x']
+            y1 = v['origen']['y']
+            origen = (x1, y1)
+            # inicializamos el grafo con su llave (vertices)
+            self.grafo[origen] = []
+
+        for vertex in self.particles:
+            x1 = vertex['origen']['x']
+            y1 = vertex['origen']['y']
+            origen = (x1, y1)
+
+            x2 = vertex['destino']['x']
+            y2 = vertex['destino']['y']
+            destino = (x2, y2)
+
+            self.dis = self.calculoEuclidiano(x1, y1, x2, y2)
+            peso = round(self.dis)
+
+            # aristas y peso del origen
+            edge_OD = (destino, peso)
+            # arista y peso del destino
+            edge_DO = (origen, peso)
+
+            # recorremos el grafo y comparamos la llave
+            for k in self.grafo.keys():
+                # si k es igual a origen
+                if k == origen:
+                    # agregamos su destino
+                    self.grafo[k].append(edge_OD)
+                # mas si k tambien es destino en otra particula
+                elif k == destino:
+                    # agregamos su origen
+                    self.grafo[k].append(edge_DO)
+
+        myStr = pformat(self.grafo, width=90, indent=2)
+        self.ui.salidaDatos.insertPlainText(myStr)
+
     @Slot()
     def minimoFB(self):
 
@@ -78,13 +128,13 @@ class MainWindow(QMainWindow):
 
             for p in self.particles:
                 if self.puntos[origen] == p['origen'] or self.puntos[origen] == p['destino']:
-                    #tupla donde se almacena el color
+                    # tupla donde se almacena el color
                     tuplaC = (p['color'])
 
             color = QColor(tuplaC['red'], tuplaC['green'], tuplaC['blue'])
             self.pen.setColor(color)
 
-            #dibujamos la linea con su punto mas cercano
+            # dibujamos la linea con su punto mas cercano
             self.scene.addLine(ox + 3, oy + 3, dx + 3, dy + 3, self.pen)
 
     @Slot()
