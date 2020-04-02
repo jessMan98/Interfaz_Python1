@@ -40,6 +40,8 @@ class Ui_MainWindow(object):
         self.actionPuntos_cercanos.setObjectName(u"actionPuntos_cercanos")
         self.actionGrafo = QAction(MainWindow)
         self.actionGrafo.setObjectName(u"actionGrafo")
+        self.actionAnchura_Profundidad = QAction(MainWindow)
+        self.actionAnchura_Profundidad.setObjectName(u"actionAnchura_Profundidad")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.Pintar = QTabWidget(self.centralwidget)
@@ -318,6 +320,7 @@ class Ui_MainWindow(object):
         self.menuPuntos.addAction(self.actionPuntos)
         self.menuPuntos.addAction(self.actionGrafo)
         self.menuAlgoritmos.addAction(self.actionPuntos_cercanos)
+        self.menuAlgoritmos.addAction(self.actionAnchura_Profundidad)
 
         self.retranslateUi(MainWindow)
 
@@ -348,6 +351,7 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(shortcut)
         self.actionGrafo.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+G", None))
 #endif // QT_CONFIG(shortcut)
+        self.actionAnchura_Profundidad.setText(QCoreApplication.translate("MainWindow", u"Anchura/Profundidad", None))
 #if QT_CONFIG(whatsthis)
         self.Pintar.setWhatsThis(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-weight:600; color:#ff0000;\">r</span></p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)

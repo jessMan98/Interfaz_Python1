@@ -567,6 +567,7 @@ color: rgb(255, 255, 255);</string>
      <string>Algoritmos</string>
     </property>
     <addaction name="actionPuntos_cercanos"/>
+    <addaction name="actionAnchura_Profundidad"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuPuntos"/>
@@ -618,6 +619,11 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="actionAnchura_Profundidad">
+   <property name="text">
+    <string>Anchura/Profundidad</string>
    </property>
   </action>
  </widget>
