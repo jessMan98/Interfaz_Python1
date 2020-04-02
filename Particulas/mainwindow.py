@@ -5,6 +5,7 @@ from PySide2.QtGui import QPen, QColor, QTransform, QBrush
 import json
 import math
 from pprint import pformat
+from Recorridos import RecorridosG
 
 
 class MainWindow(QMainWindow):
@@ -51,9 +52,32 @@ class MainWindow(QMainWindow):
         self.ui.actionGrafo.triggered.connect(self.Graph)
         self.ui.exit.clicked.connect(self.salir)
 
+        self.ui.actionAnchura_Profundidad.triggered.connect(self.recorridos)
+
     @Slot()
     def salir(self):
         exit()
+
+    @Slot()
+    def recorridos(self):
+
+        a = RecorridosG()
+
+        x1 = int(self.ui.origen_X1.text())
+        y1 = int(self.ui.origen_Y1.text())
+        origen = (x1, y1)
+
+        if origen not in self.grafo:
+            QMessageBox.information(self, "Grafo", "No se encontró el origen "+str(origen))
+
+        else:
+            print("Origen: ", origen)
+
+            print("Profundidad")
+            a.profundidad(origen, self.grafo)
+
+            print("\nAmplitud")
+            a.anchura(origen, self.grafo)
 
     @Slot()
     def Graph(self):
@@ -98,6 +122,10 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def minimoFB(self):
+        # agregamos origen y destino a una lista llamada puntos
+        for i in self.particles:
+            self.puntos.append(i['origen'])
+            self.puntos.append(i['destino'])
 
         # recorrido lista puntos
         for origen in range(0, len(self.puntos), 1):
@@ -331,7 +359,6 @@ class MainWindow(QMainWindow):
     @Slot()
     def shows(self):
         print(" ")
-
         for i in self.particles:
             print(i)
             self.dis = self.calculoEuclidiano(i['origen']['x'], i['origen']['y'], i['destino']['x'], i['destino']['y'])
@@ -354,8 +381,6 @@ class MainWindow(QMainWindow):
 
         for i in self.particles:
             self.distancia.append(i)
-            self.puntos.append(i['origen'])
-            self.puntos.append(i['destino'])
 
     @Slot()
     def guardar(self):
