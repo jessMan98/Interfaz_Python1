@@ -6,6 +6,7 @@ import json
 import math
 from pprint import pformat
 from Recorridos import RecorridosG
+from algoritmoPrim import Algoritmos
 
 
 class MainWindow(QMainWindow):
@@ -53,6 +54,38 @@ class MainWindow(QMainWindow):
         self.ui.exit.clicked.connect(self.salir)
 
         self.ui.actionAnchura_Profundidad.triggered.connect(self.recorridos)
+        self.ui.actionPrim.triggered.connect(self.prim)
+
+    @Slot()
+    def prim(self):
+        obj = Algoritmos()
+
+        try:
+            x = int(self.ui.origen_X1.text())
+            y = int(self.ui.origen_Y1.text())
+            origen = (x, y)
+
+            if origen not in self.grafo:
+                # mensaje de error
+                QMessageBox.information(self, "Grafo", "No se encontró el origen " + str(origen))
+
+            else:
+                obj.arbolEM(self.grafo, origen)
+
+                for x in obj.grafoN:
+                    color = QColor(255, 255, 0)
+                    self.pen.setColor(color)
+
+                    oX = x[1][0]
+                    oY = x[1][1]
+                    dX = x[2][0]
+                    dY = x[2][1]
+
+                    self.scene.addLine(oX + 3, oY + 3, dX + 3, dY + 3, self.pen)
+
+        except ValueError:
+            QMessageBox.information(self, "Grafo", "No es posible leer los valores")
+
 
     @Slot()
     def salir(self):
@@ -60,19 +93,23 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def recorridos(self):
-
+        # instancia de nuestra clase RecorridosG()
         a = RecorridosG()
 
+        # obtenemos el origen digitado
         x1 = int(self.ui.origen_X1.text())
         y1 = int(self.ui.origen_Y1.text())
         origen = (x1, y1)
 
+        # si el origen no esta en el grafo
         if origen not in self.grafo:
-            QMessageBox.information(self, "Grafo", "No se encontró el origen "+str(origen))
-
+            # mensaje de error
+            QMessageBox.information(self, "Grafo", "No se encontró el origen " + str(origen))
         else:
+            # si esta el origen en el grafo
             print("Origen: ", origen)
 
+            # ejecutamos los algoritmos
             print("Profundidad")
             a.profundidad(origen, self.grafo)
 
@@ -86,8 +123,14 @@ class MainWindow(QMainWindow):
             x1 = v['origen']['x']
             y1 = v['origen']['y']
             origen = (x1, y1)
+
+            x2 = v['destino']['x']
+            y2 = v['destino']['y']
+            destino = (x2, y2)
+
             # inicializamos el grafo con su llave (vertices)
             self.grafo[origen] = []
+            self.grafo[destino] = []
 
         for vertex in self.particles:
             x1 = vertex['origen']['x']
