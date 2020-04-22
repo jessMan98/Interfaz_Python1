@@ -58,34 +58,45 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def prim(self):
+        # creamos un objeto de nuestra clase Algoritmos
         obj = Algoritmos()
 
+        # creamos una excepcion
         try:
+            # pedimos el origen
             x = int(self.ui.origen_X1.text())
             y = int(self.ui.origen_Y1.text())
             origen = (x, y)
 
+            # si el origen digitado no esta en el grafo
             if origen not in self.grafo:
                 # mensaje de error
                 QMessageBox.information(self, "Grafo", "No se encontró el origen " + str(origen))
 
+            # si el origen esta en el grafo
             else:
+                # ejecutamos el algoritmo
                 obj.arbolEM(self.grafo, origen)
 
+                # recorremos nuestro grafo que tiene las distancias minimas
                 for x in obj.grafoN:
+                    # agregamos color
                     color = QColor(255, 255, 0)
                     self.pen.setColor(color)
 
+                    # sacamos el origen y destino
                     oX = x[1][0]
                     oY = x[1][1]
                     dX = x[2][0]
                     dY = x[2][1]
 
+                    # pintamos sobre la escena
                     self.scene.addLine(oX + 3, oY + 3, dX + 3, dY + 3, self.pen)
 
+        # si hay un error o el usuario no digita nada
         except ValueError:
+            # mandamos un mensaje de error
             QMessageBox.information(self, "Grafo", "No es posible leer los valores")
-
 
     @Slot()
     def salir(self):
