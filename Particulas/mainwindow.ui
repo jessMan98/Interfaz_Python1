@@ -568,6 +568,7 @@ color: rgb(255, 255, 255);</string>
     </property>
     <addaction name="actionPuntos_cercanos"/>
     <addaction name="actionAnchura_Profundidad"/>
+    <addaction name="actionPrim"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuPuntos"/>
@@ -624,6 +625,11 @@ color: rgb(255, 255, 255);</string>
   <action name="actionAnchura_Profundidad">
    <property name="text">
     <string>Anchura/Profundidad</string>
+   </property>
+  </action>
+  <action name="actionPrim">
+   <property name="text">
+    <string>Prim</string>
    </property>
   </action>
  </widget>
