@@ -22,6 +22,7 @@ class Algoritmos:
         while not self.cola.empty():
             # tomar la arista minima y eliminarla
             minimo = self.cola.get()
+            # guardamos el destino de minimo
             d = minimo[2]
 
             # si el destino no esta en la lista de visitados
