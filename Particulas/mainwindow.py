@@ -7,7 +7,7 @@ import math
 from pprint import pformat
 from Recorridos import RecorridosG
 from algoritmoPrim import Algoritmos
-
+from algoritmoKruskal import Kruskal
 
 class MainWindow(QMainWindow):
     # lista de Particulas
@@ -54,7 +54,30 @@ class MainWindow(QMainWindow):
         self.ui.exit.clicked.connect(self.salir)
 
         self.ui.actionAnchura_Profundidad.triggered.connect(self.recorridos)
+
         self.ui.actionPrim.triggered.connect(self.prim)
+
+        self.ui.actionKruskal.triggered.connect(self.kruskal)
+
+    @Slot()
+    def kruskal(self):
+        # creamos el objeto de nuestra clase
+        k = Kruskal()
+        # Ejecutamos el algoritmo
+        k.kruskalAR(self.particles, self.grafo)
+
+        # recorremos el grafo resultante
+        for kruskal in k.grafo:
+            color = QColor(255, 255, 0)
+            self.pen.setColor(color)
+
+            oX = kruskal[1][0]
+            oY = kruskal[1][1]
+            dX = kruskal[2][0]
+            dY = kruskal[2][1]
+
+            # dibujamos el camino en la inerfaz
+            self.scene.addLine(oX + 3, oY + 3, dX + 3, dY + 3, self.pen)
 
     @Slot()
     def prim(self):
