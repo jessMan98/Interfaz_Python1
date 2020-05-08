@@ -1,7 +1,7 @@
 
 class Kruskal:
     def __init__(self):
-        #lista que coniene las aristas ordenadas
+        #lista que contiene las aristas ordenadas
         self.ordena = []
         # lista que contiene los conjuntos
         self.disjoint = []
