@@ -569,6 +569,7 @@ color: rgb(255, 255, 255);</string>
     <addaction name="actionPuntos_cercanos"/>
     <addaction name="actionAnchura_Profundidad"/>
     <addaction name="actionPrim"/>
+    <addaction name="actionKruskal"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuPuntos"/>
@@ -630,6 +631,11 @@ color: rgb(255, 255, 255);</string>
   <action name="actionPrim">
    <property name="text">
     <string>Prim</string>
+   </property>
+  </action>
+  <action name="actionKruskal">
+   <property name="text">
+    <string>Kruskal</string>
    </property>
   </action>
  </widget>
