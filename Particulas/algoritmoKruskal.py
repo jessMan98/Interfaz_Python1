@@ -1,7 +1,11 @@
 
 class Kruskal:
     def __init__(self):
+<<<<<<< Updated upstream
         #lista que contiene las aristas ordenadas
+=======
+        # lista que contiene las aristas ordenadas
+>>>>>>> Stashed changes
         self.ordena = []
         # lista que contiene los conjuntos
         self.disjoint = []
@@ -76,7 +80,7 @@ class Kruskal:
             if o != d:
                 # agregamos la arista al grafo resultante
                 self.grafo.append(minimo)
-
+                # Union de Conjuntos
                 for union in range(len(self.disjoint)):
                     if union == o:
                         # unimos los conjuntos
