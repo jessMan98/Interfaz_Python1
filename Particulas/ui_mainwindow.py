@@ -46,6 +46,8 @@ class Ui_MainWindow(object):
         self.actionPrim.setObjectName(u"actionPrim")
         self.actionKruskal = QAction(MainWindow)
         self.actionKruskal.setObjectName(u"actionKruskal")
+        self.actionDijkstra = QAction(MainWindow)
+        self.actionDijkstra.setObjectName(u"actionDijkstra")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.Pintar = QTabWidget(self.centralwidget)
@@ -327,6 +329,7 @@ class Ui_MainWindow(object):
         self.menuAlgoritmos.addAction(self.actionAnchura_Profundidad)
         self.menuAlgoritmos.addAction(self.actionPrim)
         self.menuAlgoritmos.addAction(self.actionKruskal)
+        self.menuAlgoritmos.addAction(self.actionDijkstra)
 
         self.retranslateUi(MainWindow)
 
@@ -360,6 +363,7 @@ class Ui_MainWindow(object):
         self.actionAnchura_Profundidad.setText(QCoreApplication.translate("MainWindow", u"Anchura/Profundidad", None))
         self.actionPrim.setText(QCoreApplication.translate("MainWindow", u"Prim", None))
         self.actionKruskal.setText(QCoreApplication.translate("MainWindow", u"Kruskal", None))
+        self.actionDijkstra.setText(QCoreApplication.translate("MainWindow", u"Dijkstra", None))
 #if QT_CONFIG(whatsthis)
         self.Pintar.setWhatsThis(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-weight:600; color:#ff0000;\">r</span></p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)

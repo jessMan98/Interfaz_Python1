@@ -570,6 +570,7 @@ color: rgb(255, 255, 255);</string>
     <addaction name="actionAnchura_Profundidad"/>
     <addaction name="actionPrim"/>
     <addaction name="actionKruskal"/>
+    <addaction name="actionDijkstra"/>
    </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuPuntos"/>
@@ -636,6 +637,11 @@ color: rgb(255, 255, 255);</string>
   <action name="actionKruskal">
    <property name="text">
     <string>Kruskal</string>
+   </property>
+  </action>
+  <action name="actionDijkstra">
+   <property name="text">
+    <string>Dijkstra</string>
    </property>
   </action>
  </widget>
