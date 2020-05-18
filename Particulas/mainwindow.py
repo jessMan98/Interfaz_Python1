@@ -8,6 +8,8 @@ from pprint import pformat
 from Recorridos import RecorridosG
 from algoritmoPrim import Algoritmos
 from algoritmoKruskal import Kruskal
+from algoritmoDijkstra import Dijkstra
+
 
 class MainWindow(QMainWindow):
     # lista de Particulas
@@ -59,6 +61,39 @@ class MainWindow(QMainWindow):
 
         self.ui.actionKruskal.triggered.connect(self.kruskal)
 
+        self.ui.actionDijkstra.triggered.connect(self.dijkstra)
+
+    @Slot()
+    def dijkstra(self):
+        # creamos el objeto de nuestra clase
+        d = Dijkstra()
+        # almacenamos el origen
+        x = int(self.ui.origen_X1.text())
+        y = int(self.ui.origen_Y1.text())
+        origen = (x, y)
+        # almacenamos el destino
+        xD = int(self.ui.destino_X2.text())
+        yD = int(self.ui.destino_Y2.text())
+        destino = (xD, yD)
+
+        # mandamos llamar la funcion de nuestro algoritmo
+        d.algoritmoD(self.grafo, origen)
+        # llamamos a la funcion para obtener la ruta
+        d.ruta(destino, origen)
+
+        self.scene.clear()
+        # recorremos nuestro arreglo donde esta la ruta a dibujar
+        for i in d.route:
+            color = QColor(255, 255, 0)
+            self.pen.setColor(color)
+            # sacamos el origen y destino
+            oX = i[0][0]
+            oY = i[0][1]
+            dX = i[1][0]
+            dY = i[1][1]
+            # dibujamos en la pantalla
+            self.scene.addLine(oX + 3, oY + 3, dX + 3, dY + 3, self.pen)
+
     @Slot()
     def kruskal(self):
         # creamos el objeto de nuestra clase
@@ -76,7 +111,7 @@ class MainWindow(QMainWindow):
             dX = kruskal[2][0]
             dY = kruskal[2][1]
 
-            # dibujamos el camino en la inerfaz
+            # dibujamos el camino en la interfaz
             self.scene.addLine(oX + 3, oY + 3, dX + 3, dY + 3, self.pen)
 
     @Slot()
