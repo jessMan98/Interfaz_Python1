@@ -1,11 +1,8 @@
 
 class Kruskal:
     def __init__(self):
-<<<<<<< Updated upstream
+
         #lista que contiene las aristas ordenadas
-=======
-        # lista que contiene las aristas ordenadas
->>>>>>> Stashed changes
         self.ordena = []
         # lista que contiene los conjuntos
         self.disjoint = []
